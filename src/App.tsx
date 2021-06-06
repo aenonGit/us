@@ -1,26 +1,48 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { IntlProvider } from 'react-intl';
 
-function App() {
+import Router from 'components/router';
+import * as Lang from 'l18n';
+import theme from 'theme';
+
+import { Container, CssBaseline, ThemeProvider, withStyles } from '@material-ui/core';
+
+import { appStyles, useStyles } from './AppStyles';
+
+
+function getMessages(lang: string) {
+  switch (lang) {
+    case 'it':
+      return Lang.Italian;
+    case 'en':
+    default:
+      return Lang.English;
+  }
+}
+
+
+function App(props: Props): JSX.Element {
+  const classes = useStyles(theme);
+  const { lang } = props;
+  const messages = getMessages(lang);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <IntlProvider locale={lang} messages={messages}>
+        <React.Fragment>
+          <CssBaseline />
+          <Container maxWidth={false} className={classes.container}>
+            <Router />
+          </Container>
+        </React.Fragment>
+      </IntlProvider>
+    </ThemeProvider>
   );
 }
 
-export default App;
+
+type Props = {
+  lang: string;
+}
+
+
+export default withStyles(appStyles(theme))(App);
