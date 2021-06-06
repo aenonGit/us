@@ -32,25 +32,25 @@ function Sections(): JSX.Element {
 
   const onHomeClick = React.useCallback(
     () => {
-      console.log('Home Clicked');
+      // console.log('Home Clicked');
     }, []
   );
 
   const onUsClick = React.useCallback(
     () => {
-      console.log('US Clicked');
+      // console.log('US Clicked');
     }, []
   );
 
   const onStoryClick = React.useCallback(
     () => {
-      console.log('Story Clicked');
+      // console.log('Story Clicked');
     }, []
   );
 
   const onEventClick = React.useCallback(
     () => {
-      console.log('Event Clicked');
+      // console.log('Event Clicked');
     }, []
   );
 
