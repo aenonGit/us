@@ -1,7 +1,8 @@
 export enum Section {
-  HOME,
+  // HOME,
   US,
-  STORY,
-  EVENT,
+  // STORY,
+  PROMISE,
+  WEDDING,
   WEDDING_LIST,
 }

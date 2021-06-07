@@ -1,12 +1,12 @@
 import React from 'react';
 
-import Timeline from 'components/timeline';
+import { Us } from 'components/us/us';
 
 
 function Home(_props: Props): JSX.Element {
   return (
     <React.Fragment>
-      <Timeline />
+      <Us />
     </React.Fragment>
   );
 }

@@ -1,7 +1,8 @@
 import React from 'react';
 
+import logo from 'assets/images/logo.png';
+
 import { makeStyles, Theme, Typography, useMediaQuery, useTheme } from '@material-ui/core';
-import { FavoriteBorder } from '@material-ui/icons';
 
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -12,23 +13,39 @@ const useStyles = makeStyles((theme: Theme) => ({
     alignItems: 'center',
   },
   logo: {
-    width: '5%',
-    height: 'auto'
+    width: theme.spacing(5),
+    height: 'auto',
   },
   siteTitle: {
     color: theme.palette.primary.main,
     fontFamily: 'Home Winter',
-    letterSpacing: '2px'
+    letterSpacing: '2px',
+    padding: theme.spacing(0, 2),
+    [theme.breakpoints.down('xs')]: {
+      padding: theme.spacing(0, 1),
+    }
   }
 }));
+
+
+const Logo = (): JSX.Element => {
+  const classes = useStyles();
+  return <img src={logo} className={classes.logo} />;
+};
 
 
 function NameDesktop(): JSX.Element {
   const classes = useStyles();
   return (
-    <Typography variant={'h4'} className={classes.siteTitle}>
-      Enzo {<FavoriteBorder />} Gabry
-    </Typography>
+    <React.Fragment>
+      <Typography variant={'h4'} className={classes.siteTitle}>
+        Enzo
+      </Typography>
+      <Logo /> 
+      <Typography variant={'h4'} className={classes.siteTitle}>
+        Gabry
+      </Typography>
+    </React.Fragment>
   );
 }
 
@@ -36,9 +53,15 @@ function NameDesktop(): JSX.Element {
 function NameMobile(): JSX.Element {
   const classes = useStyles();
   return (
-    <Typography variant={'h4'} className={classes.siteTitle}>
-      E {<FavoriteBorder />} G
-    </Typography>
+    <React.Fragment>
+      <Typography variant={'h4'} className={classes.siteTitle}>
+        E
+      </Typography>
+      <Logo /> 
+      <Typography variant={'h4'} className={classes.siteTitle}>
+        G
+      </Typography>
+    </React.Fragment>
   );
 }
 

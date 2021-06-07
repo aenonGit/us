@@ -1,13 +1,8 @@
 import React from 'react';
 
-import { makeStyles, Tab as MuiTab, Theme, useMediaQuery, useTheme } from '@material-ui/core';
+import { Tab as MuiTab, useMediaQuery, useTheme } from '@material-ui/core';
 
-
-const useStyles = makeStyles((_theme: Theme) => ({
-  tab: {
-    fontFamily: 'Freehand 591 BT',
-  }
-}));
+import useStyles from './styles';
 
 
 function Tab(props: Props): JSX.Element {
@@ -25,7 +20,7 @@ function DesktopTab(props: Props): JSX.Element {
   const classes = useStyles();
   return (
     <MuiTab
-      className={classes.tab}
+      className={classes.desktopTab}
       label={label}
       onClick={onClick}
       value={value}
@@ -40,7 +35,7 @@ function MobileTab(props: Props): JSX.Element {
   const classes = useStyles();
   return (
     <MuiTab
-      className={classes.tab}
+      className={classes.mobileTab}
       icon={icon}
       onClick={onClick}
       value={value}
