@@ -1,12 +1,14 @@
 import React from 'react';
 import { defineMessages, useIntl } from 'react-intl';
+import { useDispatch } from 'react-redux';
 
 import Tab from 'components/appbar/sections/tab';
+import { setSelectedTab } from 'redux/actions/tab';
+import { Section } from 'utils/utils';
 
 import { Tabs } from '@material-ui/core';
 import { AddOutlined, NoteOutlined, PeopleOutline } from '@material-ui/icons';
 
-import { Section } from './utils';
 
 import useStyles from './styles';
 
@@ -22,10 +24,10 @@ const messages = defineMessages({
 
 
 function Sections(): JSX.Element {
-
   const [value, setValue] = React.useState(Section.US);
   const classes = useStyles();
   const { formatMessage } = useIntl();
+  const dispatch = useDispatch();
 
   const handleChange = React.useCallback(
     (_event: React.ChangeEvent<unknown>, newValue: number) => {
@@ -41,7 +43,7 @@ function Sections(): JSX.Element {
 
   const onUsClick = React.useCallback(
     () => {
-      // console.log('US Clicked');
+      dispatch(setSelectedTab(Section.US));
     }, []
   );
 
@@ -51,9 +53,21 @@ function Sections(): JSX.Element {
   //   }, []
   // );
 
-  const onEventClick = React.useCallback(
+  const onPromiseClick = React.useCallback(
     () => {
-      // console.log('Event Clicked');
+      dispatch(setSelectedTab(Section.PROMISE));
+    }, []
+  );
+
+  const onWeddingClick = React.useCallback(
+    () => {
+      dispatch(setSelectedTab(Section.WEDDING));
+    }, []
+  );
+
+  const onWeddingListClick = React.useCallback(
+    () => {
+      dispatch(setSelectedTab(Section.WEDDING_LIST));
     }, []
   );
 
@@ -89,19 +103,19 @@ function Sections(): JSX.Element {
         value={Section.PROMISE}
         icon={<AddOutlined />}
         label={formatMessage(messages.promise)}
-        onClick={onEventClick}
+        onClick={onPromiseClick}
       />
       <Tab
         value={Section.WEDDING}
         icon={<NoteOutlined />}
         label={formatMessage(messages.wedding)}
-        onClick={onEventClick}
+        onClick={onWeddingClick}
       />
       <Tab
         value={Section.WEDDING_LIST}
         icon={<NoteOutlined />}
         label={formatMessage(messages.weddingList)}
-        onClick={onEventClick}
+        onClick={onWeddingListClick}
       />
     </Tabs>
   );

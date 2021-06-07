@@ -5,4 +5,5 @@ export enum Section {
   PROMISE,
   WEDDING,
   WEDDING_LIST,
+  NONE,
 }

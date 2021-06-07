@@ -56,21 +56,21 @@ const Bride = () => {
   );
 };
 
-const BareUs = (props: ExtendedProps): JSX.Element => {
-  const usRef = React.useRef<HTMLDivElement>(null);
+const BarePromise = (props: ExtendedProps): JSX.Element => {
+  const promiseRef = React.useRef<HTMLDivElement>(null);
 
   const { scrollToMe } = props;
 
   React.useEffect(
     () => {
-      if (usRef.current && scrollToMe) {
-        usRef.current.scrollIntoView({ behavior: 'smooth' });
+      if (promiseRef.current && scrollToMe) {
+        promiseRef.current.scrollIntoView({ behavior: 'smooth' });
       }
     }, [scrollToMe]
   );
 
   return (
-    <div ref={usRef}>
+    <div ref={promiseRef}>
       <Groom />
       <Bride />
     </div>
@@ -85,10 +85,10 @@ type MappedProps = {
 type ExtendedProps = Props & MappedProps
 
 const mapStateToProps = (state: State): MappedProps => ({
-  scrollToMe: state.tab.selectedTab === Section.US,
+  scrollToMe: state.tab.selectedTab === Section.PROMISE,
 });
 
 
-const Us = connect(mapStateToProps)(BareUs);
+const Promise = connect(mapStateToProps)(BarePromise);
 
-export { Us };
+export { Promise };
