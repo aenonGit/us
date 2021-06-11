@@ -10,6 +10,7 @@ const useTextStyles = makeStyles((theme: Theme) => ({
   freehand: {
     color: theme.palette.common.black,
     fontFamily: 'Freehand-591-BT',
+    textAlign: 'center',
   }
 }));
 

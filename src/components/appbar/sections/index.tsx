@@ -8,7 +8,7 @@ import { useTextStyles } from 'utils/styles';
 import { Section } from 'utils/utils';
 
 import { Tabs } from '@material-ui/core';
-import { AddOutlined, NoteOutlined, PeopleOutline } from '@material-ui/icons';
+import { Favorite, Home, Info, LocalFlorist } from '@material-ui/icons';
 
 
 import useStyles from './styles';
@@ -94,7 +94,7 @@ function Sections(): JSX.Element {
       /> */}
       <Tab
         value={Section.US}
-        icon={<PeopleOutline />}
+        icon={<Home />}
         label={getLabel(formatMessage(messages.us))}
         onClick={onUsClick}
       />
@@ -106,19 +106,19 @@ function Sections(): JSX.Element {
       /> */}
       <Tab
         value={Section.PROMISE}
-        icon={<AddOutlined />}
+        icon={<LocalFlorist />}
         label={getLabel(formatMessage(messages.promise))}
         onClick={onPromiseClick}
       />
       <Tab
         value={Section.WEDDING}
-        icon={<NoteOutlined />}
+        icon={<Favorite />}
         label={getLabel(formatMessage(messages.wedding))}
         onClick={onWeddingClick}
       />
       <Tab
         value={Section.WEDDING_LIST}
-        icon={<NoteOutlined />}
+        icon={<Info />}
         label={getLabel(formatMessage(messages.weddingList))}
         onClick={onWeddingListClick}
       />
