@@ -47,7 +47,7 @@ function MobileTab(props: Props): JSX.Element {
 
 type Props = {
   icon: JSX.Element;
-  label: string;
+  label: string | JSX.Element;
   onClick: () => void;
   value: number;
 }

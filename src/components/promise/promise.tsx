@@ -35,13 +35,13 @@ const BarePromise = (props: ExtendedProps): JSX.Element => {
       <div>
         <img className={classes.media} src={promise} />
       </div>
-      <Typography variant="body2" color="textSecondary" component="p">
+      <Typography variant="h4" color="textSecondary" className={textClasses.freehand}>
           Saremo Promessi
       </Typography>
-      <Typography variant="body2" color="textSecondary" component="p">
+      <Typography variant="subtitle1" color="textSecondary" className={textClasses.freehand}>
           18 Giugno 2021
       </Typography>
-      <Typography variant="body2" color="textSecondary" component="p">
+      <Typography variant="subtitle1" color="textSecondary" className={textClasses.freehand}>
           ore 10.30 - Parrocchia S. Rita
       </Typography>
     </div>

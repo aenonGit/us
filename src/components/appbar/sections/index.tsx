@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import Tab from 'components/appbar/sections/tab';
 import { setSelectedTab } from 'redux/actions/tab';
+import { useTextStyles } from 'utils/styles';
 import { Section } from 'utils/utils';
 
 import { Tabs } from '@material-ui/core';
@@ -24,10 +25,11 @@ const messages = defineMessages({
 
 
 function Sections(): JSX.Element {
-  const [value, setValue] = React.useState(Section.US);
-  const classes = useStyles();
+  const [ value, setValue ] = React.useState(Section.US);
   const { formatMessage } = useIntl();
   const dispatch = useDispatch();
+  const classes = useStyles();
+  const textClasses = useTextStyles();
 
   const handleChange = React.useCallback(
     (_event: React.ChangeEvent<unknown>, newValue: number) => {
@@ -71,6 +73,10 @@ function Sections(): JSX.Element {
     }, []
   );
 
+  const getLabel = (label: string): JSX.Element => {
+    return <span className={textClasses.freehand}>{label}</span>;
+  };
+
   return (
     <Tabs
       value={value}
@@ -79,7 +85,6 @@ function Sections(): JSX.Element {
       indicatorColor='primary'
       textColor='primary'
       classes={{ indicator: classes.indicator }}
-      style={{ fontFamily: 'Home Winter' }}
     >
       {/* <Tab
         value={Section.HOME}
@@ -90,7 +95,7 @@ function Sections(): JSX.Element {
       <Tab
         value={Section.US}
         icon={<PeopleOutline />}
-        label={formatMessage(messages.us)}
+        label={getLabel(formatMessage(messages.us))}
         onClick={onUsClick}
       />
       {/* <Tab
@@ -102,19 +107,19 @@ function Sections(): JSX.Element {
       <Tab
         value={Section.PROMISE}
         icon={<AddOutlined />}
-        label={formatMessage(messages.promise)}
+        label={getLabel(formatMessage(messages.promise))}
         onClick={onPromiseClick}
       />
       <Tab
         value={Section.WEDDING}
         icon={<NoteOutlined />}
-        label={formatMessage(messages.wedding)}
+        label={getLabel(formatMessage(messages.wedding))}
         onClick={onWeddingClick}
       />
       <Tab
         value={Section.WEDDING_LIST}
         icon={<NoteOutlined />}
-        label={formatMessage(messages.weddingList)}
+        label={getLabel(formatMessage(messages.weddingList))}
         onClick={onWeddingListClick}
       />
     </Tabs>

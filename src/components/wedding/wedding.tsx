@@ -37,13 +37,13 @@ const BareWedding = (props: ExtendedProps): JSX.Element => {
       <div>
         <img className={classes.media} src={rings} />
       </div>
-      <Typography variant="body2" color="textSecondary" component="p">
+      <Typography variant="h4" color="textSecondary" className={textClasses.freehand}>
           15 Settembre 2021
       </Typography>
-      <Typography variant="body2" color="textSecondary" component="p">
+      <Typography variant="subtitle1" color="textSecondary" className={textClasses.freehand}>
           Cerimonia: ore 11.00 - Parrocchia S. Rita
       </Typography>
-      <Typography variant="body2" color="textSecondary" component="p">
+      <Typography variant="subtitle1" color="textSecondary" className={textClasses.freehand}>
           Ricevimento: ore 13.30 - Masseria Giosole
       </Typography>
     </div>

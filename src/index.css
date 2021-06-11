@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'Freehand-591-BT';
+  src: url('assets/fonts/freehand-591-bt.ttf') format('truetype'), /* Safari, Android, iOS */
+      url('assets/fonts/freehand-591-bt.woff') format('woff'); /* Modern Browsers */
+}
+
+/* url('webfont.eot?#iefix') format('embedded-opentype'), IE6-IE8 */
+/* url('webfont.woff') format('woff'), Pretty Modern Browsers */
+
 html {
   overflow: scroll;
   overflow-x: hidden;
@@ -15,7 +24,7 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Freehand 591 BT', arial;
+  font-family: 'Freehand-591-BT';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

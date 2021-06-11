@@ -33,10 +33,10 @@ const BareWeddingList = (props: ExtendedProps): JSX.Element => {
       <Typography variant="h2" align='center' className={textClasses.homeWinter}>
         Lista Nozze
       </Typography>
-      <Typography variant="body2" color="textSecondary" component="p">
+      <Typography variant="h4" color="textSecondary" className={textClasses.freehand}>
           Expert Mallardo
       </Typography>
-      <Typography variant="body2" color="textSecondary" component="p">
+      <Typography variant="subtitle1" color="textSecondary" className={textClasses.freehand}>
           Istruzioni: https://blablabla.it
       </Typography>
     </div>

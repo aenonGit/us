@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import us from 'assets/images/us.jpg';
 import { State } from 'redux/reducers';
+import { useTextStyles } from 'utils/styles';
 import { Section } from 'utils/utils';
 
 import {
@@ -17,6 +18,7 @@ import useStyles from './styles';
 const BareUs = (props: ExtendedProps): JSX.Element => {
   const usRef = React.useRef<HTMLDivElement>(null);
   const classes = useStyles();
+  const textClasses = useTextStyles();
 
   const { scrollToMe } = props;
 
@@ -31,13 +33,13 @@ const BareUs = (props: ExtendedProps): JSX.Element => {
   return (
     <div ref={usRef} className={classes.root}>
       <div className={classes.enzo}>
-        <Typography gutterBottom variant="h5" component="h2" style={{ fontFamily: 'Freehand 591 BT' }}>
+        <Typography gutterBottom variant="h3" className={textClasses.freehand}>
           Vincenzo Esposito
         </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
+        <Typography variant="h6" color="textSecondary" className={textClasses.freehand}>
           Via Enrico Fermi, 197
         </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
+        <Typography variant="h6" color="textSecondary" className={textClasses.freehand}>
           Villaricca (Na)
         </Typography>
       </div>
@@ -45,13 +47,13 @@ const BareUs = (props: ExtendedProps): JSX.Element => {
         <CardMedia className={classes.media} image={us} />
       </Card>
       <div className={classes.gabry}>
-        <Typography gutterBottom variant="h5" component="h2">
+        <Typography gutterBottom variant="h3" className={textClasses.freehand}>
           Gabriella Esposito
         </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
+        <Typography variant="h6" color="textSecondary" className={textClasses.freehand}>
           Via Enrico Fermi, 217
         </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
+        <Typography variant="h6" color="textSecondary" className={textClasses.freehand}>
           Villaricca (Na)
         </Typography>
       </div>
