@@ -28,6 +28,9 @@ jobs:
     - name: Run tests
       run: npm run test
 
+    - name: Configure custom domain
+      run: echo "www.enzoegabry.it" > ./build/CNAME
+
     - name: Upload production-ready build files
       uses: actions/upload-artifact@v2
       with:
