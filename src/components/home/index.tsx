@@ -8,12 +8,12 @@ import { WeddingList } from 'components/weddinglist/weddinglist';
 
 function Home(): JSX.Element {
   return (
-    <div style={{ overflowY: 'scroll' }}>
+    <React.Fragment>
       <Us />
       <Promise />
       <Wedding />
       <WeddingList />
-    </div>
+    </React.Fragment>
   );
 }
 

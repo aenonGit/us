@@ -22,11 +22,11 @@ jobs:
     - name: Install NPM packages
       run: npm ci
     
-    - name: Build project
-      run: npm run build
-    
     - name: Run tests
       run: npm run test
+
+    - name: Build project
+      run: npm run build
 
     - name: Configure custom domain
       run: echo "www.enzoegabry.it" > ./build/CNAME

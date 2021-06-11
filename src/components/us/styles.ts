@@ -24,8 +24,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     border: `1px solid ${theme.palette.primary.main}`
   },
   media: {
-    height: 300,
-    width: 400,
+    width: 500,
+    height: 400,
   },
 }));
 
