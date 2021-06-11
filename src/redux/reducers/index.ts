@@ -1,3 +1,5 @@
+import { Action } from 'redux/actions';
+
 import { State as TabState, defaultState as tabDefaultState, tab } from './tab';
 
 
@@ -11,8 +13,7 @@ const defaultState = {
 };
 
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function rootReducer(state: State | undefined, action: any) {
+function rootReducer(state: State | undefined, action: Action): State {
   if (!state) {
     state = defaultState;
   }

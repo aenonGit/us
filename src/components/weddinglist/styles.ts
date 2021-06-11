@@ -13,10 +13,6 @@ const useStyles = makeStyles((theme: Theme) => ({
       paddingTop: theme.spacing(3)
     },
   },
-  media: {
-    width: 'auto',
-    height: 250,
-  },
 }));
 
 

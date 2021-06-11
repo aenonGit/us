@@ -2,19 +2,20 @@ import React from 'react';
 
 import { Promise } from 'components/promise/promise';
 import { Us } from 'components/us/us';
+import { Wedding } from 'components/wedding/wedding';
+import { WeddingList } from 'components/weddinglist/weddinglist';
 
 
-function Home(_props: Props): JSX.Element {
+function Home(): JSX.Element {
   return (
-    <React.Fragment>
+    <div style={{ overflowY: 'scroll' }}>
       <Us />
       <Promise />
-    </React.Fragment>
+      <Wedding />
+      <WeddingList />
+    </div>
   );
 }
-
-
-type Props = unknown;
 
 
 export default Home;

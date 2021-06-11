@@ -1,7 +1,7 @@
 import React from 'react';
 import { IntlProvider } from 'react-intl';
 
-import Router from 'components/router';
+import Router from 'components/router/router';
 import * as Lang from 'l18n';
 import theme from 'theme';
 

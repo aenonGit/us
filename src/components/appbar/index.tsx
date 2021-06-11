@@ -12,7 +12,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: theme.spacing(1, 2),
-    backgroundColor: theme.palette.common.white
+    backgroundColor: theme.palette.common.white,
+    overflowY: 'hidden'
   },
 }));
 

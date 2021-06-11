@@ -3,10 +3,10 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Appbar from 'components/appbar';
 import Home from 'components/home';
-import { Route as OurStoryRoute } from 'components/router/utils';
+import { Route as UsRoute } from 'components/router/utils';
 
 
-function HomeComponent(_props: Props) {
+function HomeComponent() {
   return (
     <React.Fragment>
       <Appbar />
@@ -16,24 +16,21 @@ function HomeComponent(_props: Props) {
 }
 
 
-function Router(_props: Props): JSX.Element {
-  const getHome = React.useCallback(() => HomeComponent({}), []);
+function Router(): JSX.Element {
+  const getHome = React.useCallback(() => HomeComponent(), []);
 
   return (
     <BrowserRouter>
       <Switch>
         <Route
           exact
-          path={OurStoryRoute.Home}
+          path={UsRoute.Home}
           render={getHome}
         />
       </Switch>
     </BrowserRouter>
   );
 }
-
-
-type Props = unknown
 
 
 export default Router;

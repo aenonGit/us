@@ -1,17 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import promise from 'assets/images/promise.png';
+import rings from 'assets/images/rings.png';
 import { State } from 'redux/reducers';
 import { useTextStyles } from 'utils/styles';
 import { Section } from 'utils/utils';
 
-import { Typography } from '@material-ui/core';
+import {
+  Typography
+} from '@material-ui/core';
 
 import useStyles from './styles';
 
 
-const BarePromise = (props: ExtendedProps): JSX.Element => {
+const BareWedding = (props: ExtendedProps): JSX.Element => {
   const promiseRef = React.useRef<HTMLDivElement>(null);
   const classes = useStyles();
   const textClasses = useTextStyles();
@@ -30,19 +32,19 @@ const BarePromise = (props: ExtendedProps): JSX.Element => {
   return (
     <div ref={promiseRef} className={classes.root}>
       <Typography variant="h2" align='center' className={textClasses.homeWinter}>
-        Promessa
+        Matrimonio
       </Typography>
       <div>
-        <img className={classes.media} src={promise} />
+        <img className={classes.media} src={rings} />
       </div>
       <Typography variant="body2" color="textSecondary" component="p">
-          Saremo Promessi
+          15 Settembre 2021
       </Typography>
       <Typography variant="body2" color="textSecondary" component="p">
-          18 Giugno 2021
+          Cerimonia: ore 11.00 - Parrocchia S. Rita
       </Typography>
       <Typography variant="body2" color="textSecondary" component="p">
-          ore 10.30 - Parrocchia S. Rita
+          Ricevimento: ore 13.30 - Masseria Giosole
       </Typography>
     </div>
   );
@@ -56,10 +58,10 @@ type MappedProps = {
 type ExtendedProps = Props & MappedProps
 
 const mapStateToProps = (state: State): MappedProps => ({
-  scrollToMe: state.tab.selectedTab === Section.PROMISE,
+  scrollToMe: state.tab.selectedTab === Section.WEDDING,
 });
 
 
-const Promise = connect(mapStateToProps)(BarePromise);
+const Wedding = connect(mapStateToProps)(BareWedding);
 
-export { Promise };
+export { Wedding };
