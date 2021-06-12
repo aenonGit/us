@@ -4,9 +4,21 @@ import { makeStyles, Theme } from "@material-ui/core";
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     display: 'flex',
-    justifyContent: 'space-around',
+    flexDirection: 'column',
     alignItems: 'center',
     margin: theme.spacing(3),
+  },
+  desktopContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: '100%',
+  },
+  mobileUsContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: '100%',
   },
   enzo: {
     display: 'flex',
@@ -20,12 +32,17 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  card: {
-    border: `1px solid ${theme.palette.primary.main}`
-  },
   media: {
-    width: 500,
-    height: 400,
+    width: 480,
+    height: 360,
+    [theme.breakpoints.down('sm')]: {
+      paddingTop: theme.spacing(3),
+      width: 240,
+      height: 180,
+    },
+    border: `2px solid ${theme.palette.primary.main}`,
+    borderRadius: theme.spacing(2),
+    objectFit: 'cover'
   },
 }));
 

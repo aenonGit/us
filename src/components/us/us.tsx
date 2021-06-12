@@ -7,31 +7,19 @@ import { useTextStyles } from 'utils/styles';
 import { Section } from 'utils/utils';
 
 import {
-  Card,
-  CardMedia,
-  Typography
+  Typography,
+  useMediaQuery,
+  useTheme
 } from '@material-ui/core';
 
 import useStyles from './styles';
 
 
-const BareUs = (props: ExtendedProps): JSX.Element => {
-  const usRef = React.useRef<HTMLDivElement>(null);
+const DesktopUs = () => {
   const classes = useStyles();
   const textClasses = useTextStyles();
-
-  const { scrollToMe } = props;
-
-  React.useEffect(
-    () => {
-      if (usRef.current && scrollToMe) {
-        usRef.current.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, [scrollToMe]
-  );
-
   return (
-    <div ref={usRef} className={classes.root}>
+    <div className={classes.desktopContainer}>
       <div className={classes.enzo}>
         <Typography gutterBottom variant="h3" className={textClasses.freehand}>
           Vincenzo Esposito
@@ -43,9 +31,7 @@ const BareUs = (props: ExtendedProps): JSX.Element => {
           Villaricca (Na)
         </Typography>
       </div>
-      <Card className={classes.card}>
-        <CardMedia className={classes.media} image={us} />
-      </Card>
+      <img className={classes.media} src={us} />
       <div className={classes.gabry}>
         <Typography gutterBottom variant="h3" className={textClasses.freehand}>
           Gabriella Esposito
@@ -57,6 +43,67 @@ const BareUs = (props: ExtendedProps): JSX.Element => {
           Villaricca (Na)
         </Typography>
       </div>
+    </div>
+  );
+};
+
+
+const MobileUs = () => {
+  const classes = useStyles();
+  const textClasses = useTextStyles();
+  return (
+    <React.Fragment>
+      <img className={classes.media} src={us} />
+      <div className={classes.mobileUsContainer}>
+        <div className={classes.enzo}>
+          <Typography gutterBottom variant="h3" className={textClasses.freehand}>
+            Vincenzo Esposito
+          </Typography>
+          <Typography variant="h6" color="textSecondary" className={textClasses.freehand}>
+            Via Enrico Fermi, 197
+          </Typography>
+          <Typography variant="h6" color="textSecondary" className={textClasses.freehand}>
+            Villaricca (Na)
+          </Typography>
+        </div>
+        <div className={classes.gabry}>
+          <Typography gutterBottom variant="h3" className={textClasses.freehand}>
+            Gabriella Esposito
+          </Typography>
+          <Typography variant="h6" color="textSecondary" className={textClasses.freehand}>
+            Via Enrico Fermi, 217
+          </Typography>
+          <Typography variant="h6" color="textSecondary" className={textClasses.freehand}>
+            Villaricca (Na)
+          </Typography>
+        </div>
+      </div>
+    </React.Fragment>
+  );
+};
+
+
+const BareUs = (props: ExtendedProps) => {
+  const usRef = React.useRef<HTMLDivElement>(null);
+  const classes = useStyles();
+  const textClasses = useTextStyles();
+  const { scrollToMe } = props;
+  const isSmall = useMediaQuery(useTheme().breakpoints.down('sm'));
+
+  React.useEffect(
+    () => {
+      if (usRef.current && scrollToMe) {
+        usRef.current.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, [scrollToMe]
+  );
+
+  return (
+    <div ref={usRef} className={classes.root}>
+      <Typography variant="h2" align='center' className={textClasses.homeWinter}>
+        La nostra storia insieme
+      </Typography>
+      { isSmall ? <MobileUs /> : <DesktopUs /> }
     </div>
   );
 };
