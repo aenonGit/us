@@ -44,7 +44,7 @@ const BareWedding = (props: ExtendedProps): JSX.Element => {
           Cerimonia: ore 11.00 - Parrocchia S. Rita
       </Typography>
       <Typography variant="subtitle1" color="textSecondary" className={textClasses.freehand}>
-          Ricevimento: ore 13.30 - Masseria Giosole
+          Ricevimento: ore 13.30 - Masseria Giòsole
       </Typography>
     </div>
   );
