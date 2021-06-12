@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import promise from 'assets/images/promise.png';
+import promise from 'assets/images/logo.png';
 import { State } from 'redux/reducers';
 import { HeaderTypography } from 'utils/header';
 import { useTextStyles } from 'utils/styles';
@@ -31,9 +31,7 @@ const BarePromise = (props: ExtendedProps): JSX.Element => {
   return (
     <div ref={promiseRef} className={classes.root}>
       <HeaderTypography text='Promessa' variant='h2' />
-      <div>
-        <img className={classes.media} src={promise} />
-      </div>
+      <img className={classes.media} src={promise} />
       <Typography variant="h4" color="textSecondary" className={textClasses.freehand}>
           Saremo Promessi
       </Typography>
