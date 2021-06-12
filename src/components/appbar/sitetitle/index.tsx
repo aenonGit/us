@@ -1,8 +1,9 @@
 import React from 'react';
 
 import logo from 'assets/images/logo.png';
+import { HeaderTypography } from 'utils/header';
 
-import { makeStyles, Theme, Typography, useMediaQuery, useTheme } from '@material-ui/core';
+import { makeStyles, Theme, useMediaQuery, useTheme } from '@material-ui/core';
 
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -17,9 +18,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: 'auto',
   },
   siteTitle: {
-    color: theme.palette.primary.main,
-    fontFamily: 'Home Winter',
-    letterSpacing: '2px',
     padding: theme.spacing(0, 2),
     [theme.breakpoints.down('xs')]: {
       padding: theme.spacing(0, 1),
@@ -34,44 +32,16 @@ const Logo = (): JSX.Element => {
 };
 
 
-function NameDesktop(): JSX.Element {
-  const classes = useStyles();
-  return (
-    <React.Fragment>
-      <Typography variant={'h4'} className={classes.siteTitle}>
-        Enzo
-      </Typography>
-      <Logo /> 
-      <Typography variant={'h4'} className={classes.siteTitle}>
-        Gabry
-      </Typography>
-    </React.Fragment>
-  );
-}
-
-
-function NameMobile(): JSX.Element {
-  const classes = useStyles();
-  return (
-    <React.Fragment>
-      <Typography variant={'h4'} className={classes.siteTitle}>
-        E
-      </Typography>
-      <Logo /> 
-      <Typography variant={'h4'} className={classes.siteTitle}>
-        G
-      </Typography>
-    </React.Fragment>
-  );
-}
-
-
 function SiteTitle(): JSX.Element {
   const classes = useStyles();
   const isSmall = useMediaQuery(useTheme().breakpoints.down('sm'));
+  const enzo = isSmall ? 'E' : 'Enzo';
+  const gabry = isSmall ? 'G' : 'Gabry';
   return (
     <div className={classes.container}>
-      { isSmall ? <NameMobile /> : <NameDesktop /> }
+      <HeaderTypography text={enzo} variant='h4' className={classes.siteTitle} />
+      <Logo /> 
+      <HeaderTypography text={gabry} variant='h4' className={classes.siteTitle} />
     </div>
   );
 }

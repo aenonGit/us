@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import rings from 'assets/images/rings.png';
 import { State } from 'redux/reducers';
+import { HeaderTypography } from 'utils/header';
 import { useTextStyles } from 'utils/styles';
 import { Section } from 'utils/utils';
 
@@ -31,12 +32,8 @@ const BareWedding = (props: ExtendedProps): JSX.Element => {
 
   return (
     <div ref={promiseRef} className={classes.root}>
-      <Typography variant="h2" align='center' className={textClasses.homeWinter}>
-        Matrimonio
-      </Typography>
-      <div>
-        <img className={classes.media} src={rings} />
-      </div>
+      <HeaderTypography text='Matrimonio' variant="h2" align='center' />
+      <img className={classes.media} src={rings} />
       <Typography variant="h4" color="textSecondary" className={textClasses.freehand}>
           15 Settembre 2021
       </Typography>

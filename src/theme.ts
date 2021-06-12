@@ -11,6 +11,11 @@ const baseTheme = createMuiTheme({
       main: orange[700],
     },
   },
+  typography: {
+    fontFamily: [
+      'Freehand-591-BT',
+    ].join(','),
+  }
 });
 
 const theme = responsiveFontSizes(baseTheme);

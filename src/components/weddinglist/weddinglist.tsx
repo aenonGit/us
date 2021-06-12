@@ -3,6 +3,7 @@ import { defineMessages, useIntl } from 'react-intl';
 import { connect } from 'react-redux';
 
 import { State } from 'redux/reducers';
+import { HeaderTypography } from 'utils/header';
 import { useTextStyles } from 'utils/styles';
 import { Section } from 'utils/utils';
 
@@ -39,9 +40,7 @@ const BareWeddingList = (props: ExtendedProps): JSX.Element => {
 
   return (
     <div ref={promiseRef} className={classes.root}>
-      <Typography variant="h2" align='center' className={textClasses.homeWinter}>
-        {formatMessage(messages.tab)}
-      </Typography>
+      <HeaderTypography text={formatMessage(messages.tab)} variant="h2" align='center' />
       <Typography variant="h4" color="textSecondary" className={textClasses.freehand}>
         {formatMessage(messages.title)}
       </Typography>

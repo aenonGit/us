@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import us from 'assets/images/us.jpg';
 import { State } from 'redux/reducers';
+import { HeaderTypography } from 'utils/header';
 import { useTextStyles } from 'utils/styles';
 import { Section } from 'utils/utils';
 
@@ -62,7 +63,7 @@ const MobileUs = () => {
       <img className={classes.media} src={us} />
       <div className={classes.mobileUsContainer}>
         <div className={classes.enzo}>
-          <Typography gutterBottom variant="h3" style={{ fontFamily: 'Freehand-591-BT' }}>
+          <Typography gutterBottom variant="h3" className={textClasses.freehand}>
             Vincenzo Esposito
           </Typography>
           <Typography variant="h6" color="textSecondary" className={textClasses.freehand}>
@@ -92,7 +93,6 @@ const MobileUs = () => {
 const BareUs = (props: ExtendedProps) => {
   const usRef = React.useRef<HTMLDivElement>(null);
   const classes = useStyles();
-  //const textClasses = useTextStyles();
   const { formatMessage } = useIntl();
   const { scrollToMe } = props;
   const isSmall = useMediaQuery(useTheme().breakpoints.down('sm'));
@@ -107,9 +107,7 @@ const BareUs = (props: ExtendedProps) => {
 
   return (
     <div ref={usRef} className={classes.root}>
-      <Typography gutterBottom variant="h2" align='center' style={{ fontFamily: 'Home Winter' }}>
-        {formatMessage(messages.title)}
-      </Typography>
+      <HeaderTypography text={formatMessage(messages.title)} gutterBottom variant="h2" align='center' />
       { isSmall ? <MobileUs /> : <DesktopUs /> }
     </div>
   );
