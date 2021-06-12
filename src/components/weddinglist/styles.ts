@@ -13,6 +13,13 @@ const useStyles = makeStyles((theme: Theme) => ({
       paddingTop: theme.spacing(3)
     },
   },
+  info: {
+    display: 'flex',
+    justifyContent: 'flex-start'
+  },
+  value: {
+    paddingLeft: theme.spacing(1)
+  }
 }));
 
 
