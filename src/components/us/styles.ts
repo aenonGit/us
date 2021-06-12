@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexDirection: 'row',
     justifyContent: 'space-around',
     width: '100%',
+    paddingTop: theme.spacing(2)
   },
   enzo: {
     display: 'flex',

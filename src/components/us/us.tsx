@@ -1,4 +1,5 @@
 import React from 'react';
+import { defineMessages, useIntl } from 'react-intl';
 import { connect } from 'react-redux';
 
 import us from 'assets/images/us.jpg';
@@ -13,6 +14,11 @@ import {
 } from '@material-ui/core';
 
 import useStyles from './styles';
+
+
+const messages = defineMessages({
+  title: { id: 'us.title' },
+});
 
 
 const DesktopUs = () => {
@@ -87,6 +93,7 @@ const BareUs = (props: ExtendedProps) => {
   const usRef = React.useRef<HTMLDivElement>(null);
   const classes = useStyles();
   const textClasses = useTextStyles();
+  const { formatMessage } = useIntl();
   const { scrollToMe } = props;
   const isSmall = useMediaQuery(useTheme().breakpoints.down('sm'));
 
@@ -100,8 +107,8 @@ const BareUs = (props: ExtendedProps) => {
 
   return (
     <div ref={usRef} className={classes.root}>
-      <Typography variant="h2" align='center' className={textClasses.homeWinter}>
-        La nostra storia insieme
+      <Typography gutterBottom variant="h2" align='center' className={textClasses.homeWinter}>
+        {formatMessage(messages.title)}
       </Typography>
       { isSmall ? <MobileUs /> : <DesktopUs /> }
     </div>
