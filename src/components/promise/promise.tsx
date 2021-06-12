@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import promise from 'assets/images/logo.png';
+import promise from 'assets/images/promise.png';
 import { State } from 'redux/reducers';
 import { HeaderTypography } from 'utils/header';
 import { useTextStyles } from 'utils/styles';
