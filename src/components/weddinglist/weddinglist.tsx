@@ -1,4 +1,5 @@
 import React from 'react';
+import { defineMessages, useIntl } from 'react-intl';
 import { connect } from 'react-redux';
 
 import { State } from 'redux/reducers';
@@ -12,10 +13,18 @@ import {
 import useStyles from './styles';
 
 
+const messages = defineMessages({
+  tab: { id: 'tab.weddingList' },
+  title: { id: 'weddingList.title' },
+  description: { id: 'weddingList.description' },
+});
+
+
 const BareWeddingList = (props: ExtendedProps): JSX.Element => {
   const promiseRef = React.useRef<HTMLDivElement>(null);
   const classes = useStyles();
   const textClasses = useTextStyles();
+  const { formatMessage } = useIntl();
 
   const { scrollToMe } = props;
 
@@ -31,13 +40,13 @@ const BareWeddingList = (props: ExtendedProps): JSX.Element => {
   return (
     <div ref={promiseRef} className={classes.root}>
       <Typography variant="h2" align='center' className={textClasses.homeWinter}>
-        Lista Nozze
+        {formatMessage(messages.tab)}
       </Typography>
       <Typography variant="h4" color="textSecondary" className={textClasses.freehand}>
-          Expert Mallardo
+        {formatMessage(messages.title)}
       </Typography>
-      <Typography variant="subtitle1" color="textSecondary" className={textClasses.freehand}>
-          Istruzioni: https://blablabla.it
+      <Typography variant="h6" color="textSecondary" className={textClasses.freehand}>
+        {formatMessage(messages.description)}
       </Typography>
     </div>
   );

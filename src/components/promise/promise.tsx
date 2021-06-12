@@ -38,10 +38,10 @@ const BarePromise = (props: ExtendedProps): JSX.Element => {
       <Typography variant="h4" color="textSecondary" className={textClasses.freehand}>
           Saremo Promessi
       </Typography>
-      <Typography variant="subtitle1" color="textSecondary" className={textClasses.freehand}>
+      <Typography variant="h6" color="textSecondary" className={textClasses.freehand}>
           18 Giugno 2021
       </Typography>
-      <Typography variant="subtitle1" color="textSecondary" className={textClasses.freehand}>
+      <Typography variant="h6" color="textSecondary" className={textClasses.freehand}>
           ore 10.30 - Parrocchia S. Rita
       </Typography>
     </div>

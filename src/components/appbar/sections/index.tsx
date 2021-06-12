@@ -10,7 +10,6 @@ import { Section } from 'utils/utils';
 import { Tabs } from '@material-ui/core';
 import { Favorite, Home, Info, LocalFlorist } from '@material-ui/icons';
 
-
 import useStyles from './styles';
 
 
