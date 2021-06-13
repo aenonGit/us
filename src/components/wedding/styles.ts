@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     margin: theme.spacing(3),
-    paddingTop: theme.spacing(10),
+    paddingTop: theme.spacing(5),
     [theme.breakpoints.down('xs')]: {
       paddingTop: theme.spacing(3)
     },

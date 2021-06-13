@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     flexDirection: 'column',
     margin: theme.spacing(2),
-    padding: theme.spacing(4, 3),
+    padding: theme.spacing(1),
     justifyContent: 'space-between',
     alignItems: 'center',
   },
