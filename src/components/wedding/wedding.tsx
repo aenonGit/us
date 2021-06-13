@@ -7,9 +7,10 @@ import { HeaderTypography } from 'utils/header';
 import { useTextStyles } from 'utils/styles';
 import { Section } from 'utils/utils';
 
-import {
-  Typography
-} from '@material-ui/core';
+import {  Typography } from '@material-ui/core';
+
+import { Ceremony } from './info/ceremony';
+import { Party } from './info/party';
 
 import useStyles from './styles';
 
@@ -32,17 +33,13 @@ const BareWedding = (props: ExtendedProps): JSX.Element => {
 
   return (
     <div ref={promiseRef} className={classes.root}>
-      <HeaderTypography text='Matrimonio' variant="h2" align='center' />
+      <HeaderTypography text='Matrimonio' variant='h2' align='center' />
       <img className={classes.media} src={rings} />
-      <Typography variant="h4" color="textSecondary" className={textClasses.freehand}>
-          15 Settembre 2021
+      <Typography variant='h4' color='textSecondary' className={textClasses.freehand}>
+        15 Settembre 2021
       </Typography>
-      <Typography variant="subtitle1" color="textSecondary" className={textClasses.freehand}>
-          Cerimonia: ore 11.00 - Parrocchia S. Rita
-      </Typography>
-      <Typography variant="subtitle1" color="textSecondary" className={textClasses.freehand}>
-          Ricevimento: ore 13.30 - Masseria Giòsole
-      </Typography>
+      <Ceremony />
+      <Party />
     </div>
   );
 };
