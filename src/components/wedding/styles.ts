@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   media: {
     width: 'auto',
     height: 150,
+    paddingBottom: theme.spacing(2),
   },
 }));
 

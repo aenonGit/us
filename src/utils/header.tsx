@@ -4,11 +4,16 @@ import { Typography, TypographyProps, useTheme } from '@material-ui/core';
 
 
 const HeaderTypography = (props: Props): JSX.Element => {
-  const { text, ...rest } = props;
+  const { padding = true, text, ...rest } = props;
   const theme = useTheme();
   return (
     <Typography
-      style={{ fontFamily: 'Home Winter', letterSpacing: '2px', color: theme.palette.primary.main }}
+      style={{
+        fontFamily: 'Home Winter',
+        letterSpacing: '2px',
+        color: theme.palette.primary.main,
+        paddingBottom: padding ? theme.spacing(2) : 0
+      }}
       { ...rest }
     >
       {text}
@@ -18,6 +23,7 @@ const HeaderTypography = (props: Props): JSX.Element => {
 
 
 type Props = {
+  padding?: boolean;
   text: string;
 } & TypographyProps;
 

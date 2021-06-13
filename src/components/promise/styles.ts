@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   media: {
     width: 'auto',
     height: 200,
+    paddingBottom: theme.spacing(2),
     [theme.breakpoints.down('xs')]: {
       height: 100,
     },

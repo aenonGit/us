@@ -39,9 +39,19 @@ function SiteTitle(): JSX.Element {
   const gabry = isSmall ? 'G' : 'Gabry';
   return (
     <div className={classes.container}>
-      <HeaderTypography text={enzo} variant='h4' className={classes.siteTitle} />
+      <HeaderTypography
+        text={enzo}
+        variant='h4'
+        className={classes.siteTitle}
+        padding={false}
+      />
       <Logo /> 
-      <HeaderTypography text={gabry} variant='h4' className={classes.siteTitle} />
+      <HeaderTypography
+        text={gabry}
+        variant='h4'
+        className={classes.siteTitle}
+        padding={false}
+      />
     </div>
   );
 }
