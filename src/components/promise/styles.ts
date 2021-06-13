@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   media: {
     width: 'auto',
     height: 200,
+    [theme.breakpoints.down('xs')]: {
+      height: 100,
+    },
   },
 }));
 
