@@ -39,7 +39,7 @@ const BarePromise = (props: ExtendedProps): JSX.Element => {
           18 Giugno 2021
       </Typography>
       <Typography variant="h6" color="textSecondary" className={textClasses.freehand}>
-          ore 10.30 - Parrocchia S. Rita
+          ore 10.00 - Parrocchia Santa Rita da Cascia
       </Typography>
     </div>
   );
