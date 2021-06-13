@@ -2,6 +2,8 @@ import React from 'react';
 import { defineMessages, useIntl } from 'react-intl';
 import { useDispatch } from 'react-redux';
 
+import { Event } from 'analytics/events';
+import { logEvent } from 'analytics/firebaseAnalytics';
 import Tab from 'components/appbar/sections/tab';
 import { setSelectedTab } from 'redux/actions/tab';
 import { useTextStyles } from 'utils/styles';
@@ -44,6 +46,7 @@ function Sections(): JSX.Element {
 
   const onUsClick = React.useCallback(
     () => {
+      logEvent(Event.US);
       dispatch(setSelectedTab(Section.US));
     }, []
   );
@@ -56,18 +59,21 @@ function Sections(): JSX.Element {
 
   const onPromiseClick = React.useCallback(
     () => {
+      logEvent(Event.PROMISE);
       dispatch(setSelectedTab(Section.PROMISE));
     }, []
   );
 
   const onWeddingClick = React.useCallback(
     () => {
+      logEvent(Event.WEDDING);
       dispatch(setSelectedTab(Section.WEDDING));
     }, []
   );
 
   const onWeddingListClick = React.useCallback(
     () => {
+      logEvent(Event.WEDDING_LIST);
       dispatch(setSelectedTab(Section.WEDDING_LIST));
     }, []
   );

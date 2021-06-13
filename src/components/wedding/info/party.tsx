@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Event } from 'analytics/events';
+import { logEvent } from 'analytics/firebaseAnalytics';
 import giosole from 'assets/images/giosole.jpg';
 import { HeaderTypography } from "utils/header";
 
@@ -8,7 +10,7 @@ import { CardMedia, Link, Typography, useMediaQuery, useTheme } from "@material-
 import useStyles from "./styles";
 
 
-const DesktopParty = (): JSX.Element => {
+const DesktopParty = (props: { onClick: () => void }): JSX.Element => {
   const classes = useStyles();
   return (
     <div className={classes.rootCardDesktop}>
@@ -35,6 +37,7 @@ const DesktopParty = (): JSX.Element => {
             color='primary'
             target="_blank"
             rel="noopener noreferrer"
+            onClick={props.onClick}
           >
             indicazioni
           </Link>
@@ -45,7 +48,7 @@ const DesktopParty = (): JSX.Element => {
 };
 
 
-const MobileParty = (): JSX.Element => {
+const MobileParty = (props: { onClick: () => void }): JSX.Element => {
   const classes = useStyles();
   return (
     <div className={classes.rootCardMobile}>
@@ -72,6 +75,7 @@ const MobileParty = (): JSX.Element => {
             color='primary'
             target="_blank"
             rel="noopener noreferrer"
+            onClick={props.onClick}
           >
             indicazioni
           </Link>
@@ -84,7 +88,8 @@ const MobileParty = (): JSX.Element => {
 
 const Party = (): JSX.Element => {
   const isSmall = useMediaQuery(useTheme().breakpoints.down('sm'));
-  return isSmall ? <MobileParty /> : <DesktopParty />;
+  const onClick = React.useCallback(() => logEvent(Event.MASSERIA_GIOSOLE), []);
+  return isSmall ? <MobileParty onClick={onClick} /> : <DesktopParty onClick={onClick} />;
 };
 
 

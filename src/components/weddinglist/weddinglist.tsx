@@ -2,6 +2,8 @@ import React from 'react';
 import { defineMessages, useIntl } from 'react-intl';
 import { connect } from 'react-redux';
 
+import { Event } from 'analytics/events';
+import { logEvent } from 'analytics/firebaseAnalytics';
 import classnames from 'classnames';
 import { State } from 'redux/reducers';
 import { HeaderTypography } from 'utils/header';
@@ -48,6 +50,8 @@ const BareWeddingList = (props: ExtendedProps): JSX.Element => {
     }, [scrollToMe]
   );
 
+  const onClick = React.useCallback(() => logEvent(Event.EXPERT_MALLARDO), []);
+
   const valueStyle = classnames(textClasses.freehand, classes.value);
 
   return (
@@ -64,7 +68,13 @@ const BareWeddingList = (props: ExtendedProps): JSX.Element => {
           {formatMessage(messages.addressKey)}
         </Typography>
         <Typography variant="h6" color="textSecondary" className={valueStyle}>
-          <Link href={formatMessage(messages.addressLink)} color='primary' target="_blank" rel="noopener noreferrer">
+          <Link
+            href={formatMessage(messages.addressLink)}
+            color='primary'
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={onClick}
+          >
             {formatMessage(messages.addressValue)}
           </Link>
         </Typography>

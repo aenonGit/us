@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Event } from 'analytics/events';
+import { logEvent } from 'analytics/firebaseAnalytics';
 import santarita from 'assets/images/santarita.jpg';
 import { HeaderTypography } from "utils/header";
 
@@ -8,7 +10,7 @@ import { CardMedia, Link, Typography, useMediaQuery, useTheme } from "@material-
 import useStyles from "./styles";
 
 
-const DesktopCeremony = (): JSX.Element => {
+const DesktopCeremony = (props: { onClick: () => void }): JSX.Element => {
   const classes = useStyles();
   return (
     <div className={classes.rootCardDesktop}>
@@ -29,6 +31,7 @@ const DesktopCeremony = (): JSX.Element => {
             color='primary'
             target="_blank"
             rel="noopener noreferrer"
+            onClick={props.onClick}
           >
             indicazioni
           </Link>
@@ -45,7 +48,7 @@ const DesktopCeremony = (): JSX.Element => {
 };
 
 
-const MobileCeremony = (): JSX.Element => {
+const MobileCeremony = (props: { onClick: () => void }): JSX.Element => {
   const classes = useStyles();
   return (
     <div className={classes.rootCardMobile}>
@@ -72,6 +75,7 @@ const MobileCeremony = (): JSX.Element => {
             color='primary'
             target="_blank"
             rel="noopener noreferrer"
+            onClick={props.onClick}
           >
             indicazioni
           </Link>
@@ -84,7 +88,8 @@ const MobileCeremony = (): JSX.Element => {
 
 const Ceremony = (): JSX.Element => {
   const isSmall = useMediaQuery(useTheme().breakpoints.down('sm'));
-  return isSmall ? <MobileCeremony /> : <DesktopCeremony />;
+  const onClick = React.useCallback(() => logEvent(Event.SANTA_RITA), []);
+  return isSmall ? <MobileCeremony onClick={onClick} /> : <DesktopCeremony onClick={onClick} />;
 };
 
 
