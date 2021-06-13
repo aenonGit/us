@@ -58,7 +58,7 @@ const MobileParty = (): JSX.Element => {
           title='Masseria Giòsole'
         />
         <Typography variant='h4' className={classes.infoTextMobile}>
-          ore 13.30
+          ore 14.00
         </Typography>
         <Typography variant='h5' className={classes.infoTextMobile}>
           Masseria Giòsole
