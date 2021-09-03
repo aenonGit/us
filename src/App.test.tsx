@@ -9,6 +9,6 @@ import App from './App';
 
 test('renders Vincenzo string', () => {
   render(<Provider store={setupStore()}><App lang={'en'} /></Provider>);
-  const linkElement = screen.getByText(/Vincenzo/i);
+  const linkElement = screen.getByText(/salvadanaio/i);
   expect(linkElement).toBeInTheDocument();
 });
