@@ -4,11 +4,11 @@
   "tab.promise": "Promessa",
   "tab.us": "Us",
   "tab.wedding": "Matrimonio",
-  "tab.weddingList": "Wedding List",
+  "tab.weddingList": "Gifts",
 
   "us.title": "Enzo e Gabry",
 
-  "weddingList.title": "\"Expert Mallardo\"",
+  "weddingList.title": "Wedding List \"Expert Mallardo\"",
   "weddingList.location": "Villaricca",
   "weddingList.description": "\u00C9 possibile recarsi direttamente in sede o effettuare un bonifico comodamente da casa.\nIl Bonifico andrà intestato a: MALLARDO e C SRL\nCAUSALE: Regalo lista nr° 5232 - filiale 031\nIstituto Bancario: BPER - BANCA POPOLARE DELL'EMILIA ROMAGNA\nIBAN: IT31Z0538703402000003225854",
   "weddingList.addressKey": "Address: ",
@@ -17,5 +17,11 @@
   "weddingList.usernameKey": "Username: ",
   "weddingList.usernameValue": "5232",
   "weddingList.passwordKey": "Password: ",
-  "weddingList.passwordValue": "f2f"
+  "weddingList.passwordValue": "f2f",
+
+  "weddingGift.title": "The most precious gift",
+  "weddingGift.description": "Il pensiero più bello che possiate farci è essere con noi nel nostro grande giorno.\nMa se gradite farci un regalo, preferiamo metterlo nel salvadanaio,\ne quando lo useremo in futuro, penseremo con gioia a voi e al vostro gesto.\nGrazie\nEnzo & Gabry",
+  "weddingGift.ibanKey": "IBAN: ",
+  "weddingGift.ibanValue": "IT86V0623039900000057904092",
+  "weddingGift.ibanHeading": "Intestato a: \"Vincenzo Esposito Gabriella Esposito\""
 }

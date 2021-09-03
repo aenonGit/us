@@ -11,8 +11,10 @@ import { useTextStyles } from 'utils/styles';
 import { Section } from 'utils/utils';
 
 import {
+  Divider,
   Link,
-  Typography
+  Typography,
+  useTheme
 } from '@material-ui/core';
 
 import useStyles from './styles';
@@ -30,6 +32,11 @@ const messages = defineMessages({
   passwordKey: { id: 'weddingList.passwordKey' },
   passwordValue: { id: 'weddingList.passwordValue' },
   description: { id: 'weddingList.description' },
+  giftTitle: { id: 'weddingGift.title' },
+  giftDescription: { id: 'weddingGift.description' },
+  giftIbanKey: { id: 'weddingGift.ibanKey' },
+  giftIbanValue: { id: 'weddingGift.ibanValue' },
+  giftIbanHeading: { id: 'weddingGift.ibanHeading' }
 });
 
 
@@ -54,47 +61,83 @@ const BareWeddingList = (props: ExtendedProps): JSX.Element => {
 
   const valueStyle = classnames(textClasses.freehand, classes.value);
 
+  const theme = useTheme();
+
+  const getWeddingGift = () => {
+    return (
+      <React.Fragment>
+        <Typography variant="h4" color="textSecondary" className={textClasses.freehand}>
+          {formatMessage(messages.giftTitle)}
+        </Typography>
+        <Typography variant="h6" color="textSecondary" className={textClasses.freehand}>
+          {formatMessage(messages.giftDescription)}
+        </Typography>
+        <div className={classes.info}>
+          <Typography variant="h6" color="textSecondary" className={textClasses.freehand}>
+            {formatMessage(messages.giftIbanKey)}
+          </Typography>
+          <Typography variant="h6" className={valueStyle} style={{ color: theme.palette.primary.main }}>
+            {formatMessage(messages.giftIbanValue)}
+          </Typography>
+        </div>
+        <Typography variant="h6" color="textSecondary" className={textClasses.freehand}>
+          {formatMessage(messages.giftIbanHeading)}
+        </Typography>
+      </React.Fragment>
+    );
+  };
+
+  const getWeddingList = () => {
+    return (
+      <React.Fragment>
+        <Typography variant="h4" color="textSecondary" className={textClasses.freehand}>
+          {formatMessage(messages.title)}
+        </Typography>
+        <Typography variant="h6" color="textSecondary" className={textClasses.freehand}>
+          {formatMessage(messages.location)}
+        </Typography>
+        <div className={classes.info}>
+          <Typography variant="h6" color="textSecondary" className={textClasses.freehand}>
+            {formatMessage(messages.addressKey)}
+          </Typography>
+          <Typography variant="h6" color="textSecondary" className={valueStyle}>
+            <Link
+              href={formatMessage(messages.addressLink)}
+              color='primary'
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={onClick}
+            >
+              {formatMessage(messages.addressValue)}
+            </Link>
+          </Typography>
+        </div>
+        <div className={classes.info}>
+          <Typography variant="h6" color="textSecondary" className={textClasses.freehand}>
+            {formatMessage(messages.usernameKey)}
+          </Typography>
+          <Typography variant="h6" color="textSecondary" className={valueStyle}>
+            {formatMessage(messages.usernameValue)}
+          </Typography>
+        </div>
+        <div className={classes.info}>
+          <Typography variant="h6" color="textSecondary" className={textClasses.freehand}>
+            {formatMessage(messages.passwordKey)}
+          </Typography>
+          <Typography variant="h6" color="textSecondary" className={valueStyle}>
+            {formatMessage(messages.passwordValue)}
+          </Typography>
+        </div>
+      </React.Fragment>
+    );
+  };
+
   return (
     <div ref={promiseRef} className={classes.root}>
       <HeaderTypography text={formatMessage(messages.tab)} variant="h2" align='center' />
-      <Typography variant="h4" color="textSecondary" className={textClasses.freehand}>
-        {formatMessage(messages.title)}
-      </Typography>
-      <Typography variant="h6" color="textSecondary" className={textClasses.freehand}>
-        {formatMessage(messages.location)}
-      </Typography>
-      <div className={classes.info}>
-        <Typography variant="h6" color="textSecondary" className={textClasses.freehand}>
-          {formatMessage(messages.addressKey)}
-        </Typography>
-        <Typography variant="h6" color="textSecondary" className={valueStyle}>
-          <Link
-            href={formatMessage(messages.addressLink)}
-            color='primary'
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={onClick}
-          >
-            {formatMessage(messages.addressValue)}
-          </Link>
-        </Typography>
-      </div>
-      <div className={classes.info}>
-        <Typography variant="h6" color="textSecondary" className={textClasses.freehand}>
-          {formatMessage(messages.usernameKey)}
-        </Typography>
-        <Typography variant="h6" color="textSecondary" className={valueStyle}>
-          {formatMessage(messages.usernameValue)}
-        </Typography>
-      </div>
-      <div className={classes.info}>
-        <Typography variant="h6" color="textSecondary" className={textClasses.freehand}>
-          {formatMessage(messages.passwordKey)}
-        </Typography>
-        <Typography variant="h6" color="textSecondary" className={valueStyle}>
-          {formatMessage(messages.passwordValue)}
-        </Typography>
-      </div>
+      { getWeddingGift() }
+      <Divider style={{ margin: '24px' }} />
+      { getWeddingList() }
     </div>
   );
 };
